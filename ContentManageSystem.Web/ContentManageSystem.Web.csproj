@@ -186,6 +186,7 @@
     <Compile Include="Areas\Admin\AdminAuthorize.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ConfigController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
@@ -688,6 +689,8 @@
     <Content Include="Areas\Admin\Views\Category\ModifyGeneral.cshtml" />
     <Content Include="Areas\Admin\Views\Category\ModifyPage.cshtml" />
     <Content Include="Areas\Admin\Views\Category\ModifyLink.cshtml" />
+    <Content Include="Config\SiteConfig.config" />
+    <Content Include="Areas\Admin\Views\Config\SiteConfig.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
