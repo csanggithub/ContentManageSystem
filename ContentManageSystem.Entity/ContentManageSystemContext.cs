@@ -14,7 +14,7 @@ namespace ContentManageSystem.Entity
     /// </summary>
     public class ContentManageSystemContext : DbContext
     {
-        public ContentManageSystemContext() : base("DefaultConnection")
+        public ContentManageSystemContext() : base("ContentManageSystem")//base("DefaultConnection")
         {
             Database.SetInitializer<ContentManageSystemContext>(new CreateDatabaseIfNotExists<ContentManageSystemContext>());
         }

@@ -181,6 +181,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\AdminAuthorize.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Models\LoginViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="General.cs" />
@@ -653,6 +655,8 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Content\bootstrap-select.css.map" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -693,7 +697,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Content\img\diy\" />
     <Folder Include="Content\zTree\metroStyle\img\" />
   </ItemGroup>
@@ -709,6 +712,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContentManageSystem.Entity\ContentManageSystem.Entity.csproj">
+      <Project>{7dd36eee-a099-4dd0-8a02-95320f280860}</Project>
+      <Name>ContentManageSystem.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ContentManageSystem.Services\ContentManageSystem.Services.csproj">
+      <Project>{A266EF11-BD82-45D6-BFB3-E5F024921BE2}</Project>
+      <Name>ContentManageSystem.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
