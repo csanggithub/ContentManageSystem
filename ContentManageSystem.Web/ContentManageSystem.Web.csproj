@@ -183,6 +183,7 @@
     <Compile Include="Areas\Admin\AdminAuthorize.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Models\AddAdminViewModel.cs" />
     <Compile Include="Areas\Admin\Models\LoginViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="General.cs" />
@@ -657,6 +658,7 @@
     <Content Include="Content\bootstrap-select.css.map" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -714,6 +716,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ContentManageSystem.Common\ContentManageSystem.Common.csproj">
+      <Project>{D3C3985B-64D9-46A5-858A-67BB5ED7B2CC}</Project>
+      <Name>ContentManageSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ContentManageSystem.Entity\ContentManageSystem.Entity.csproj">
       <Project>{7dd36eee-a099-4dd0-8a02-95320f280860}</Project>
       <Name>ContentManageSystem.Entity</Name>
