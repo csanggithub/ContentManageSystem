@@ -1,0 +1,192 @@
+﻿@model ContentManageSystem.Entity.Models.Category.Category
+
+@{
+    ViewBag.Title = "添加栏目";
+}
+
+@section SideNav{@Html.Partial("SideNavPartialView")}
+
+<ol class="breadcrumb">
+    <li><span class="glyphicon glyphicon-home"></span>  @Html.ActionLink("首页", "Index", "Home")</li>
+    <li>@Html.ActionLink("栏目管理", "Index", "Category")</li>
+    <li class="active">添加栏目</li>
+</ol>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <ul id="myTabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation"><a href="#base" role="tab" data-toggle="tab" aria-controls="base">基本资料</a></li>
+            <li id="tabadvanced" role="presentation"><a href="#advanced" role="tab" data-toggle="tab" aria-controls="advanced">高级设置</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="base">
+                <br />
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ParentID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.HiddenFor(model => model.ParentID)
+                    <div class="input-group" style="width:280px">
+                        <input id="textbox-CategoryID" type="text" class="form-control" readonly />
+                        <ul class="dropdown-menu dropdown-menu-left ztree" style="display:none" id="kk"></ul>
+                        <div class="input-group-btn open">
+                            <button id="btn-CategoryID" type="button" class="btn btn-default"><span class="caret"></span></button>
+                        </div>
+                    </div>
+                    <div id='jqxWidget'>
+                        <div id="ParentIDc" class="form-control">
+                            <div style="border: none;" id='combTree'>
+                            </div>
+                        </div>
+                    </div>
+
+                    @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EnumDropDownListFor(model => model.Type, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Target, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Target, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Target, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="advanced">
+            111
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="保存" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+@*<div class="btn-group">
+        <button type="button" class="btn btn-default" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu">
+            <ul id="kk" class="ztree"><li>ss</li></ul>
+        </div>
+
+    </div>*@
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/bootstrapplugin")*@
+    @Scripts.Render("~/Scripts/jquery.ztree.all.min.js")
+}
+@section style{
+    @Styles.Render("~/Content/zTree/metroStyle/metroStyle.css")
+}
+<script type="text/javascript">
+    //显示隐藏标签页
+    function showTabBySelect()
+    {
+        switch ($("#Type").find("option:selected").text()) {
+            case "常规栏目":
+                //$("#tabgeneral").show();
+                $("#advanced").load("@Url.Action("AddGeneral")");
+                break;
+            case "单页栏目":
+                //$("#tabgeneral").hide();
+                $("#advanced").load("@Url.Action("AddPage")");
+                break;
+            case "外部链接":
+                $("#advanced").load("@Url.Action("AddLink")");
+                break;
+        }
+    }
+    $(document).ready(function () {
+        showTabBySelect();
+        $("#Type").change(function () {
+            showTabBySelect();
+        });
+        $("#ParentIDc").jqxDropDownButton({ width: 150, height: 25 });
+        $('#combTree').on('select', function (event) {
+            var args = event.args;
+            var item = $('#combTree').jqxTree('getItem', args.element);
+            var dropDownContent = '<div style="position: relative; margin-left: 3px; margin-top: 5px;">' + item.label + '</div>';
+            $("#ParentIDc").jqxDropDownButton('setContent', dropDownContent);
+            $("#ParentID").val(item.value);
+        });
+        $.post("@Url.Action("DropdownTreeList", "Category")", null, function (data) {
+            $("#combTree").jqxTree({ source: data, width: 200, height: 220 });
+
+            $("#combTree").jqxTree('selectItem', $("#combTree").find('#node_' + $("#ParentID").val())[0]);
+        }, "json");
+
+    });
+</script>
+<script type="text/javascript">
+
+    var zTreeObj;
+    // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+    var setting = {
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "value",
+                pIdKey: "pId",
+                rootPId: 0
+            },
+            key: {
+                name: "name"
+            }
+        }
+    };
+    // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+    $(document).ready(function () {
+        $.post("@Url.Action("zTree")", null, function (data) {
+            zTreeObj = $.fn.zTree.init($("#kk"), setting, data);
+            var newNode = { Name: "无", CategoryID:"0",ParentID:"-1" };
+            newNode = zTreeObj.addNodes(null,0, newNode);
+        }, "json");
+
+    });
+    $("#btn-CategoryID").click(function () { $("#kk").slideDown(); });
+</script>
+

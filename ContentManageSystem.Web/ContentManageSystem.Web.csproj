@@ -679,6 +679,11 @@
     <Content Include="Areas\Admin\Views\User\Add.cshtml" />
     <Content Include="Areas\Admin\Views\User\Prompt.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\PromptPartialView.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\SideNavPartialView.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\AddGeneral.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\AddPage.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\AddLink.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -719,7 +724,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Category\" />
     <Folder Include="Content\img\diy\" />
     <Folder Include="Content\zTree\metroStyle\img\" />
   </ItemGroup>

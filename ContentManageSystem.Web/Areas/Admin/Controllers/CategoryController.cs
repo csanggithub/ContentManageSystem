@@ -186,18 +186,18 @@ namespace ContentManageSystem.Web.Areas.Admin.Controllers
             //遍历常规栏目
             foreach (var _category in _categories)
             {
-                _node = new TreeNode() { parentid = _category.ParentID, value = _category.CategoryID, id = "node_" + _category.CategoryID, label = _category.Name, html = Url.Action("Detials", "Category", new { @id = _category.CategoryID }) };
-                if (_nodes.Exists(n => n.parentid == _category.CategoryID))
+                _node = new TreeNode() { pId = _category.ParentID, value = _category.CategoryID, id = "node_" + _category.CategoryID, name = _category.Name, html = Url.Action("Detials", "Category", new { @id = _category.CategoryID }) };
+                if (_nodes.Exists(n => n.pId == _category.CategoryID))
                 {
-                    var _children = _nodes.Where(n => n.parentid == _category.CategoryID).ToList();
-                    _nodes.RemoveAll(n => n.parentid == _category.CategoryID);
+                    var _children = _nodes.Where(n => n.pId == _category.CategoryID).ToList();
+                    _nodes.RemoveAll(n => n.pId == _category.CategoryID);
                     _node.items = _children;
                     _node.expanded = false;
                     _nodes.Add(_node);
                 }
                 else _nodes.Add(_node);
             }
-            _nodes.Insert(0, new TreeNode() { id = "node_0", value = 0, label = "无" });
+            _nodes.Insert(0, new TreeNode() { id = "node_0", value = 0, name = "无" });
             return Json(_nodes);
         }
 
@@ -214,7 +214,7 @@ namespace ContentManageSystem.Web.Areas.Admin.Controllers
             //遍历常规栏目
             foreach (var _category in _categories)
             {
-                _node = new TreeNode() { parentid = _category.ParentID, value = _category.CategoryID, id = "node_" + _category.CategoryID, label = _category.Name, html = Url.Action("Detials", "Category", new { @id = _category.CategoryID }) };
+                _node = new TreeNode() { pId = _category.ParentID, value = _category.CategoryID, id = "node_" + _category.CategoryID, name = _category.Name, html = Url.Action("Detials", "Category", new { @id = _category.CategoryID }) };
                 if (showIcon)
                 {
                     switch (_category.Type)
@@ -230,10 +230,10 @@ namespace ContentManageSystem.Web.Areas.Admin.Controllers
                             break;
                     }
                 }
-                if (_nodes.Exists(n => n.parentid == _category.CategoryID))
+                if (_nodes.Exists(n => n.pId == _category.CategoryID))
                 {
-                    var _children = _nodes.Where(n => n.parentid == _category.CategoryID).ToList();
-                    _nodes.RemoveAll(n => n.parentid == _category.CategoryID);
+                    var _children = _nodes.Where(n => n.pId == _category.CategoryID).ToList();
+                    _nodes.RemoveAll(n => n.pId == _category.CategoryID);
                     _node.items = _children;
                     _node.expanded = false;
                     _nodes.Add(_node);
@@ -253,7 +253,7 @@ namespace ContentManageSystem.Web.Areas.Admin.Controllers
             //遍历常规栏目
             foreach (var _category in _categories)
             {
-                _node = new TreeNode() { parentid = _category.ParentID, value = _category.CategoryID, id = "node_" + _category.CategoryID, label = _category.Name, html = Url.Action("Detials", "Category", new { @id = _category.CategoryID }) };
+                _node = new TreeNode() { pId = _category.ParentID, value = _category.CategoryID, id = "node_" + _category.CategoryID, name = _category.Name, html = Url.Action("Detials", "Category", new { @id = _category.CategoryID }) };
                 if (showIcon)
                 {
                     switch (_category.Type)
@@ -287,7 +287,7 @@ namespace ContentManageSystem.Web.Areas.Admin.Controllers
             //遍历常规栏目
             foreach (var _category in _categories)
             {
-                _nodes.Add(new TreeNode() { parentid = _category.ParentID, id = _category.CategoryID.ToString(), label = _category.Name });
+                _nodes.Add(new TreeNode() { pId = _category.ParentID, id = _category.CategoryID.ToString(), name = _category.Name });
             }
 
             return Json(_nodes);

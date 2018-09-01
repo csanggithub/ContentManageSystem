@@ -17,7 +17,12 @@ namespace ContentManageSystem.Web.Models
         /// <summary>
         /// 父节点ID
         /// </summary>
-        public int parentid { get; set; }
+        public int pId { get; set; }
+
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string name { get; set; }
 
         /// <summary>
         /// 图标
