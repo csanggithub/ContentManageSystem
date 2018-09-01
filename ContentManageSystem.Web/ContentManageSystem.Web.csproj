@@ -684,6 +684,10 @@
     <Content Include="Areas\Admin\Views\Category\AddGeneral.cshtml" />
     <Content Include="Areas\Admin\Views\Category\AddPage.cshtml" />
     <Content Include="Areas\Admin\Views\Category\AddLink.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Modify.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\ModifyGeneral.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\ModifyPage.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\ModifyLink.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
