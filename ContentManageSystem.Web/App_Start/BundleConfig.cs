@@ -22,9 +22,46 @@ namespace ContentManageSystem.Web
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            #region jQWidget
+            bundles.Add(new ScriptBundle("~/bundles/jqx").Include(
+                      "~/jqwidgets/jqxcore.js",
+                      "~/jqwidgets/jqxdropdownbutton.js",
+                      //"~/jqwidgets/jqxdropdownlist.js",
+                      "~/jqwidgets/jqxscrollbar.js",
+                      "~/jqwidgets/jqxbuttons.js",
+                      "~/jqwidgets/jqxtree.js",
+                      "~/jqwidgets/jqxpanel.js"));
+
+            bundles.Add(new StyleBundle("~/Content/jqx").Include(
+                      "~/jqwidgets/styles/jqx.base.css",
+                      "~/jqwidgets/styles/jqx.bootstrap.css"));
+            #endregion
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrapplugin").Include(
+                      "~/Scripts/moment-with-locales.js",
+                      "~/Scripts/bootstrap-datetimepicker.js",
+                      "~/Scripts/bootstrap-dialog.js",
+                      "~/Scripts/bootstrap-select.js",
+                      "~/Scripts/bootstrap-select-zh_CN.js",
+                      "~/Scripts/bootstrap-table.js",
+                      "~/Scripts/bootstrap-table-zh-CN.js",
+                      "~/Scripts/bootstrap-treeview.js",
+                      "~/Scripts/jquery.twbsPagination.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrapplugincss").Include(
+                      "~/Content/bootstrap-datetimepicker.css",
+                      "~/Content/bootstrap-dialog.css",
+                      "~/Content/bootstrap-select.css",
+                      "~/Content/bootstrap-table.css",
+                      "~/Content/bootstrap-treeview.css"));
+
+            bundles.Add(new StyleBundle("~/Content/controlcss").Include(
+                      "~/Content/bootstrap.css",
+                      "~/Content/StyleControl.css"));
         }
     }
 }
